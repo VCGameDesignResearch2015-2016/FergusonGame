@@ -18,7 +18,20 @@ public class Trigger : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col) {
 		if (col.gameObject.tag == "Player") {
-			Instantiate(nyt, loc.transform.position, Quaternion.identity);
+			Vector3 thingLoc = loc.transform.position;
+			Instantiate(nyt, thingLoc, Quaternion.identity);
+			Vector3 cnnLoc = new Vector3(thingLoc.x + 10,
+			                         thingLoc.y + 5,
+			                         thingLoc.z + 2);
+			Instantiate(cnn, cnnLoc, Quaternion.identity);
+			Vector3 bbcLoc = new Vector3(thingLoc.x + 18,
+			                             thingLoc.y + 5,
+			                             thingLoc.z + 1);
+			Instantiate(bbc, bbcLoc, Quaternion.identity);
+			Vector3 huffLoc = new Vector3(thingLoc.x+25,
+			                              thingLoc.y + 3,
+			                              thingLoc.z + -2);
+			Instantiate(huff, huffLoc, Quaternion.identity);
 		}
 	}
 }
